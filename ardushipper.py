@@ -16,8 +16,7 @@ while True:
     data = "%s" % buff1.strip()
     if "3478-ENDTRANSMISSION" in data:
       count+= 1
-    if count > 2:
-      count = 0
+    if count > 1:
       break
     if count > 0:
         if not data.isspace():
