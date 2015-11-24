@@ -19,9 +19,10 @@ while True:
     if count > 2:
       count = 0
       break
-    if not data.isspace():
-      if len(data) > 0:
-        print 'Got:', data
-        syslog.syslog(str(data))
-    sleep(0.5)
+    if count > 0:
+        if not data.isspace():
+        if len(data) > 0:
+            print 'Got:', data
+            syslog.syslog(str(data))
+        sleep(0.5)
 ser.close()
