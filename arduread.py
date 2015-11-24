@@ -2,7 +2,8 @@ import serial
 import syslog
 from time import sleep
 
-port = "/dev/ttyUSB1"
+#port = "/dev/ttyUSB1"
+port = "/dev/ttyACM0"
 
 ser = serial.Serial(port, 115200, timeout=15)
 syslog.openlog(logoption=syslog.LOG_PID, facility=syslog.LOG_DAEMON)
