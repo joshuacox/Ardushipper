@@ -12,7 +12,7 @@ while True:
     rawdata = ser.readline()
     buff1 = "%s" % rawdata.split(b'\0',1)[0]
     data = "%s" % buff1.strip()
-    if "BSQ26-ENDTRANSMISSION" in data:
+    if "3478-ENDTRANSMISSION" in data:
       break
     if not data.isspace():
       if len(data) > 0:
