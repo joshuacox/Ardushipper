@@ -15,7 +15,7 @@ while True:
     buff1 = "%s" % rawdata.split(b'\0',1)[0]
     data = "%s" % buff1.strip()
     if "3478-ENDTRANSMISSION" in data:
-      count++
+      count+= 1
     if count > 2:
       count = 0
       break
