@@ -64,8 +64,8 @@ def main():
         if count > 0:
             if not data.isspace():
                 if len(data) > 0:
-                    print 'Got:', data
-                    syslog.syslog(str(data))
+                    log.debug('Got:', data)
+                    #syslog.syslog(str(data))
             sleep(0.5)
         ser.write("1")
     ser.close()
