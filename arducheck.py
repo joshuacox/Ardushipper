@@ -31,22 +31,28 @@ def main():
     args, args2 = parse_args()
 
     """ Main plugin logic goes here """
+    log.debug('Main Logic')
     nagiosExitCode = 0
     nagiosExitMessage = 'OK: Humidity is normal'
+    log.debug('Starting Serial')
     ser = serial.Serial(args.device, 115200, timeout=15)
-    syslog.openlog(logoption=syslog.LOG_PID, facility=syslog.LOG_DAEMON)
+    #log.debug('Opening Syslog')
+    #syslog.openlog(logoption=syslog.LOG_PID, facility=syslog.LOG_DAEMON)
     count = 0
     bsq26humidity = -1;
+    log.debug('Opening While loop')
     while True:
         rawdata = ser.readline()
         buff1 = "%s" % rawdata.split(b'\0',1)[0]
         data = "%s" % buff1.strip()
+        log.debug('data:', data)
         if "3478-ENDTRANSMISSION" in data:
             count+= 1
         if "BSQ26-Humidity" in data:
             bsq26humidity = data[0].split('"')[1]
             log.debug('Humidity:', data)
         if count > 1:
+            log.debug('break')
             break
         if count > 0:
             if not data.isspace():
