@@ -110,9 +110,11 @@ def parse_args():
     parser.add_option('-w', '--warning', help='Set the warning threshold. Default: %(default)s',
                       default=75, type=float, dest='warn', metavar='##')
     parser.add_option('-l', '--locrit', help='Set the low critical threshold. Default: %(default)s',
-                      default=4, type=float, dest='crit', metavar='##')
+                      default=4, type=float, dest='locrit', metavar='##')
     parser.add_option('-n', '--lowarn', help='Set the low warning threshold. Default: %(default)s',
-                      default=8, type=float, dest='warn', metavar='##')
+                      default=8, type=float, dest='lowarn', metavar='##')
+    parser.add_option('-d', '--device', help='Set the device to listen to. Default: %(default)s',
+                      default='/dev/USB0', type=float, dest='device', metavar='##')
 
     parser.add_option_group(group)
 
