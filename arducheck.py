@@ -71,7 +71,7 @@ def main():
     ser.close()
 
     floatHumidity = float( bsq26humidity )
-    nagiosExitMessageTemplate = Template($CONDITION: Humidity is $POSITION $OVERUNDER the threshold of $THRESH at $VALUE)
+    nagiosExitMessageTemplate = Template('$CONDITION: Humidity is $POSITION $OVERUNDER the threshold of $THRESH at $VALUE')
     # nagiosExitMessage = 'OK: Humidity is normal'
     # nagiosExitMessage = 'OK: Humidity', floatHumidity 'is normal'
     nagiosExitMessage = nagiosExitMessageTemplate.substitutei(CONDITION='OK', POSITION='is normal', OVERUNDER=under, VALUE=floatHumidity)
