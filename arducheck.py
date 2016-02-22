@@ -36,6 +36,9 @@ def main():
     nagiosExitMessage = 'OK: Humidity is normal'
     log.debug('Starting Serial')
     ser = serial.Serial(args.device, 115200, timeout=15)
+    # a write to serial is necessary
+    # to kick off arduino
+    ser.write("hello")
     #log.debug('Opening Syslog')
     #syslog.openlog(logoption=syslog.LOG_PID, facility=syslog.LOG_DAEMON)
     count = 0
@@ -45,9 +48,6 @@ def main():
         rawdata = ser.readline()
         buff1 = "%s" % rawdata.split(b'\0',1)[0]
         data = "%s" % buff1.strip()
-        log.debug('data:')
-        log.debug(data)
-        print 'Got:', data
         if "BSQ26-ENDTRANSMISSION" in data:
             count+= 1
         if "BSQ26-Humidity" in data:
