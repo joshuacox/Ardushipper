@@ -43,7 +43,7 @@ def main():
         if "3478-ENDTRANSMISSION" in data:
             count+= 1
         if "BSQ26-Humidity" in data:
-            bsq26humidity = data[0].split('"')[1]'"')
+            bsq26humidity = data[0].split('"')[1]
             log.debug('Humidity:', data)
         if count > 1:
             break
