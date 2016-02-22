@@ -41,12 +41,12 @@ def main():
         buff1 = "%s" % rawdata.split(b'\0',1)[0]
         data = "%s" % buff1.strip()
         if "3478-ENDTRANSMISSION" in data:
-        count+= 1
+            count+= 1
         if "BSQ26-Humidity" in data:
             bsq26humidity = data[0].split('"')[1]'"')
             log.debug('Humidity:', data)
         if count > 1:
-        break
+            break
         if count > 0:
             if not data.isspace():
                 if len(data) > 0:
