@@ -31,8 +31,8 @@ def main():
     nagiosExitCode = 0
     nagiosExitMessage = 'OK: Humidity is normal'
     #port = "/dev/ttyUSB1"
-    port = "/dev/ttyACM0"
-    ser = serial.Serial(port, 115200, timeout=15)
+    #port = "/dev/ttyACM0"
+    ser = serial.Serial(device, 115200, timeout=15)
     syslog.openlog(logoption=syslog.LOG_PID, facility=syslog.LOG_DAEMON)
     count = 0
     bsq26humidity = -1;
