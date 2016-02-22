@@ -45,6 +45,8 @@ def main():
     bsq26humidity = -1;
     log.debug('Opening While loop')
     while True:
+        ser.write("1")
+        count = 1;
         rawdata = ser.readline()
         buff1 = "%s" % rawdata.split(b'\0',1)[0]
         data = "%s" % buff1.strip()
@@ -66,6 +68,7 @@ def main():
                     print 'Got:', data
                     syslog.syslog(str(data))
             sleep(0.5)
+        ser.write("1")
     ser.close()
 
     if bsq26humidity < args.lowarn:
