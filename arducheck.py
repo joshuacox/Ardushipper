@@ -27,6 +27,9 @@ from time import sleep
 #testargs = '-vvv'
 
 def main():
+    ## Parse command-line arguments
+    args, args2 = parse_args()
+
     """ Main plugin logic goes here """
     nagiosExitCode = 0
     nagiosExitMessage = 'OK: Humidity is normal'
@@ -74,8 +77,6 @@ def main():
 
     """ Main plugin logic ends here """
 
-    ## Parse command-line arguments
-    args, args2 = parse_args()
 
     ## Uncomment to test logging levels against verbosity settings
     # log.debug('debug message')
