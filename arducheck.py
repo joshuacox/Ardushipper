@@ -20,6 +20,7 @@ import logging as log
 import serial
 import syslog
 from time import sleep
+from string import Template
 
 ## These will override any args passed to the script normally. Comment out after testing.
 #testargs = '--help'
