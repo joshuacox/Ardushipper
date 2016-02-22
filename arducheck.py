@@ -48,6 +48,9 @@ def main():
         rawdata = ser.readline()
         buff1 = "%s" % rawdata.split(b'\0',1)[0]
         data = "%s" % buff1.strip()
+        log.debug('data:')
+        log.debug(data)
+        print 'Got:', data
         if "BSQ26-ENDTRANSMISSION" in data:
             count+= 1
         if "BSQ26-Humidity" in data:
