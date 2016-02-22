@@ -78,13 +78,13 @@ def main():
 
     if floatHumidity < args.lowarn:
         nagiosExitCode = 1
-        nagiosExitMessage = WARN: Humidity floatHumidity is low, under threshold args.lowarn
+        nagiosExitMessage = nagiosExitMessageTemplate.substitutei(CONDITION='WARN', POSITION='is low', OVERUNDER=under, VALUE=floatHumidity)
     if floatHumidity < args.locrit:
         nagiosExitCode = 2
         nagiosExitMessage = 'CRITICAL: Humidity', floatHumidity ,'is extremely low, under threshold', args.locrit
     if floatHumidity > args.warn:
         nagiosExitCode = 1
-        nagiosExitMessage = 'WARN: Humidity', floatHumidity ,'is high, over threshold', args.warn
+        nagiosExitMessage = nagiosExitMessageTemplate.substitutei(CONDITION='WARN', POSITION='is high', OVERUNDER=over, VALUE=floatHumidity)
     if floatHumidity > args.crit:
         nagiosExitCode = 2
         nagiosExitMessage = 'CRITICAL: Humidity', floatHumidity ,'is extremely high, over threshold', args.crit
