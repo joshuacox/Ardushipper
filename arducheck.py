@@ -35,7 +35,7 @@ def main():
     ser = serial.Serial(port, 115200, timeout=15)
     syslog.openlog(logoption=syslog.LOG_PID, facility=syslog.LOG_DAEMON)
     count = 0
-    bsq26-humidity = -1;
+    bsq26humidity = -1;
     while True:
         rawdata = ser.readline()
         buff1 = "%s" % rawdata.split(b'\0',1)[0]
