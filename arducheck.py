@@ -52,11 +52,10 @@ def main():
         data = "%s" % buff1.strip()
         log.debug('data:')
         log.debug(data)
-        print 'Got:', data
         if "BSQ26-ENDTRANSMISSION" in data:
             count+= 1
         if "BSQ26-Humidity" in data:
-            bsq26humidity = data.split(': ')[1]
+            bsq26humidity = data.split(' ')[1]
             log.debug('Humidity:')
             log.debug(data)
         if count > 1:
