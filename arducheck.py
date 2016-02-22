@@ -47,7 +47,8 @@ def main():
         data = "%s" % buff1.strip()
         log.debug('data:')
         log.debug(data)
-        if "3478-ENDTRANSMISSION" in data:
+        print 'Got:', data
+        if "BSQ26-ENDTRANSMISSION" in data:
             count+= 1
         if "BSQ26-Humidity" in data:
             bsq26humidity = data[0].split('"')[1]
