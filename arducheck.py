@@ -67,7 +67,7 @@ def main():
     if bsq26humidity > crit:
         nagiosExitCode = 2
         nagiosExitMessage = 'CRITICAL: Humidity is extremely high'
-    if bsq26humidity = -1:
+    if bsq26humidity == -1:
         nagiosExitCode = 3
         nagiosExitMessage = 'UNKNOWN: Humidity is unknown'
 
