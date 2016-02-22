@@ -71,16 +71,18 @@ def main():
     ser.close()
 
     floatHumidity = float( bsq26humidity )
+    nagiosExitMessage = 'OK: Humidity is normal'
+    nagiosExitMessage = 'OK: Humidity', floatHumidity 'is normal'
 
     if floatHumidity < args.lowarn:
         nagiosExitCode = 1
-        nagiosExitMessage = 'WARN: Humidity', floatHumidity ,'is extremely low, under threshold', args.lowarn
+        nagiosExitMessage = WARN: Humidity floatHumidity is low, under threshold args.lowarn
     if floatHumidity < args.locrit:
         nagiosExitCode = 2
         nagiosExitMessage = 'CRITICAL: Humidity', floatHumidity ,'is extremely low, under threshold', args.locrit
     if floatHumidity > args.warn:
         nagiosExitCode = 1
-        nagiosExitMessage = 'WARN: Humidity', floatHumidity ,'is extremely high, over threshold', args.warn
+        nagiosExitMessage = 'WARN: Humidity', floatHumidity ,'is high, over threshold', args.warn
     if floatHumidity > args.crit:
         nagiosExitCode = 2
         nagiosExitMessage = 'CRITICAL: Humidity', floatHumidity ,'is extremely high, over threshold', args.crit
