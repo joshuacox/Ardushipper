@@ -72,16 +72,16 @@ def main():
 
     if bsq26humidity < args.lowarn:
         nagiosExitCode = 1
-        nagiosExitMessage = 'WARN: Humidity is low' , bsq26humidity
+        nagiosExitMessage = 'WARN: Humidity', bsq26humidity ,'is extremely low, under threshold', args.lowarn
     if bsq26humidity < args.locrit:
         nagiosExitCode = 2
-        nagiosExitMessage = 'CRITICAL: Humidity is extremely low', bsq26humidity
+        nagiosExitMessage = 'CRITICAL: Humidity', bsq26humidity ,'is extremely low, under threshold', args.locrit
     if bsq26humidity > args.warn:
         nagiosExitCode = 1
-        nagiosExitMessage = 'WARN: Humidity is high', bsq26humidity
+        nagiosExitMessage = 'WARN: Humidity', bsq26humidity ,'is extremely high, over threshold', args.warn
     if bsq26humidity > args.crit:
         nagiosExitCode = 2
-        nagiosExitMessage = 'CRITICAL: Humidity is extremely high', bsq26humidity
+        nagiosExitMessage = 'CRITICAL: Humidity', bsq26humidity ,'is extremely high, over threshold', args.crit
     if bsq26humidity == -1:
         nagiosExitCode = 3
         nagiosExitMessage = 'UNKNOWN: Humidity is unknown', bsq26humidity
