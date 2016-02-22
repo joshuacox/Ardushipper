@@ -72,19 +72,19 @@ def main():
 
     if bsq26humidity < args.lowarn:
         nagiosExitCode = 1
-        nagiosExitMessage = 'WARN: Humidity is low'
+        nagiosExitMessage = 'WARN: Humidity is low' , bsq26humidity
     if bsq26humidity < args.locrit:
         nagiosExitCode = 2
-        nagiosExitMessage = 'CRITICAL: Humidity is extremely low'
+        nagiosExitMessage = 'CRITICAL: Humidity is extremely low', bsq26humidity
     if bsq26humidity > args.warn:
         nagiosExitCode = 1
-        nagiosExitMessage = 'WARN: Humidity is high'
+        nagiosExitMessage = 'WARN: Humidity is high', bsq26humidity
     if bsq26humidity > args.crit:
         nagiosExitCode = 2
-        nagiosExitMessage = 'CRITICAL: Humidity is extremely high'
+        nagiosExitMessage = 'CRITICAL: Humidity is extremely high', bsq26humidity
     if bsq26humidity == -1:
         nagiosExitCode = 3
-        nagiosExitMessage = 'UNKNOWN: Humidity is unknown'
+        nagiosExitMessage = 'UNKNOWN: Humidity is unknown', bsq26humidity
 
 
     """ Main plugin logic ends here """
