@@ -33,9 +33,7 @@ def main():
     """ Main plugin logic goes here """
     nagiosExitCode = 0
     nagiosExitMessage = 'OK: Humidity is normal'
-    #port = "/dev/ttyUSB1"
-    #port = "/dev/ttyACM0"
-    ser = serial.Serial(device, 115200, timeout=15)
+    ser = serial.Serial(args.device, 115200, timeout=15)
     syslog.openlog(logoption=syslog.LOG_PID, facility=syslog.LOG_DAEMON)
     count = 0
     bsq26humidity = -1;
@@ -58,16 +56,16 @@ def main():
             sleep(0.5)
     ser.close()
 
-    if bsq26humidity < lowarn:
+    if bsq26humidity < args.lowarn:
         nagiosExitCode = 1
         nagiosExitMessage = 'WARN: Humidity is low'
-    if bsq26humidity < locrit:
+    if bsq26humidity < args.locrit:
         nagiosExitCode = 2
         nagiosExitMessage = 'CRITICAL: Humidity is extremely low'
-    if bsq26humidity > warn:
+    if bsq26humidity > args.warn:
         nagiosExitCode = 1
         nagiosExitMessage = 'WARN: Humidity is high'
-    if bsq26humidity > crit:
+    if bsq26humidity > args.crit:
         nagiosExitCode = 2
         nagiosExitMessage = 'CRITICAL: Humidity is extremely high'
     if bsq26humidity == -1:
