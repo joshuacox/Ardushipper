@@ -70,21 +70,23 @@ def main():
         ser.write("1")
     ser.close()
 
-    if bsq26humidity < args.lowarn:
+    floatHumidity = float( bsq26humidity )
+
+    if floatHumidity < args.lowarn:
         nagiosExitCode = 1
-        nagiosExitMessage = 'WARN: Humidity', bsq26humidity ,'is extremely low, under threshold', args.lowarn
-    if bsq26humidity < args.locrit:
+        nagiosExitMessage = 'WARN: Humidity', floatHumidity ,'is extremely low, under threshold', args.lowarn
+    if floatHumidity < args.locrit:
         nagiosExitCode = 2
-        nagiosExitMessage = 'CRITICAL: Humidity', bsq26humidity ,'is extremely low, under threshold', args.locrit
-    if bsq26humidity > args.warn:
+        nagiosExitMessage = 'CRITICAL: Humidity', floatHumidity ,'is extremely low, under threshold', args.locrit
+    if floatHumidity > args.warn:
         nagiosExitCode = 1
-        nagiosExitMessage = 'WARN: Humidity', bsq26humidity ,'is extremely high, over threshold', args.warn
-    if bsq26humidity > args.crit:
+        nagiosExitMessage = 'WARN: Humidity', floatHumidity ,'is extremely high, over threshold', args.warn
+    if floatHumidity > args.crit:
         nagiosExitCode = 2
-        nagiosExitMessage = 'CRITICAL: Humidity', bsq26humidity ,'is extremely high, over threshold', args.crit
-    if bsq26humidity == -1:
+        nagiosExitMessage = 'CRITICAL: Humidity', floatHumidity ,'is extremely high, over threshold', args.crit
+    if floatHumidity == -1:
         nagiosExitCode = 3
-        nagiosExitMessage = 'UNKNOWN: Humidity is unknown', bsq26humidity
+        nagiosExitMessage = 'UNKNOWN: Humidity is unknown', floatHumidity
 
 
     """ Main plugin logic ends here """
