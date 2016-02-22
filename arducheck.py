@@ -75,17 +75,17 @@ def main():
     nagiosExitMessageTemplate = Template('$CONDITION: Humidity is $POSITION $OVERUNDER the threshold of $THRESH at $VALUE')
     # nagiosExitMessage = 'OK: Humidity is normal'
     # nagiosExitMessage = 'OK: Humidity', floatHumidity 'is normal'
-    nagiosExitMessage = nagiosExitMessageTemplate.substitutei(CONDITION='OK', POSITION='is normal', OVERUNDER=under, VALUE=floatHumidity)
+    nagiosExitMessage = nagiosExitMessageTemplate.substitute(CONDITION='OK', POSITION='is normal', OVERUNDER=under, VALUE=floatHumidity)
 
     if floatHumidity < args.lowarn:
         nagiosExitCode = 1
-        nagiosExitMessage = nagiosExitMessageTemplate.substitutei(CONDITION='WARN', POSITION='is low', OVERUNDER=under, VALUE=floatHumidity)
+        nagiosExitMessage = nagiosExitMessageTemplate.substitute(CONDITION='WARN', POSITION='is low', OVERUNDER=under, VALUE=floatHumidity)
     if floatHumidity < args.locrit:
         nagiosExitCode = 2
         nagiosExitMessage = 'CRITICAL: Humidity', floatHumidity ,'is extremely low, under threshold', args.locrit
     if floatHumidity > args.warn:
         nagiosExitCode = 1
-        nagiosExitMessage = nagiosExitMessageTemplate.substitutei(CONDITION='WARN', POSITION='is high', OVERUNDER=over, VALUE=floatHumidity)
+        nagiosExitMessage = nagiosExitMessageTemplate.substitute(CONDITION='WARN', POSITION='is high', OVERUNDER=over, VALUE=floatHumidity)
     if floatHumidity > args.crit:
         nagiosExitCode = 2
         nagiosExitMessage = 'CRITICAL: Humidity', floatHumidity ,'is extremely high, over threshold', args.crit
