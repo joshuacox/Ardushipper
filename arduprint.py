@@ -1,5 +1,6 @@
 import serial
 import syslog
+from datetime import datetime
 from time import sleep
 
 #port = "/dev/ttyUSB1"
@@ -24,7 +25,7 @@ while True:
 #    print len(data)
     if not data.isspace():
       if len(data) > 0:
-        print 'Got:', data
+        print "datetime.now() Got:", data
 #    	syslog.syslog(str(data))
         ser.write("1")
 
