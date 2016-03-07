@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import serial
 import syslog
 from time import sleep
