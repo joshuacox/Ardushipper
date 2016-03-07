@@ -25,7 +25,7 @@ while True:
 #    print len(data)
     if not data.isspace():
       if len(data) > 0:
-          print time.time(), " Got:", data, "At:", datetime.now()
+        print time.time(), " Got:", data, "At:", datetime.now()
 #    	syslog.syslog(str(data))
         ser.write("1")
 
