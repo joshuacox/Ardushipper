@@ -1,5 +1,6 @@
 import serial
 import syslog
+import time
 from datetime import datetime
 from time import sleep
 
